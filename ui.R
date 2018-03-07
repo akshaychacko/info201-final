@@ -9,25 +9,35 @@ ui <- fluidPage(
     
     sidebarPanel(
       
-      # Radio buttons that allow user to change column of interest
-      radioButtons("select", "Select dataset column of interest:",
-                   list("NO2"='a', "O3"='b', "SO2"='c', "CO"='d')),
-      
       
       # Slider input to control bin size 
       sliderInput(inputId = "bins",
                   label = "Number of bins:",
                   min = 1,
                   max = 50,
-                  value = 25)
+                  value = 25),
+      
+      
+      # Radio buttons that allow user to change column of interest
+      radioButtons("select", "Select dataset column of interest:",
+                   list("NO2"='a', "O3"='b', "SO2"='c', "CO"='d'))
+      
+      
+    
     ),
+    
+    
     
     # Main panel for displaying output
     mainPanel(
-      
-      # Histogram output
-      plotOutput(outputId = "histPlot")
-      
+      tabsetPanel(
+        tabPanel("Plot",
+                 # fluidRow(...)
+                 plotOutput(outputId = "histPlot"),
+               #  plotOutput("bar",height = 500),
+                 plotlyOutput("plot")
+        )
+      )
     )
   )
 )
