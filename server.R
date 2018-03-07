@@ -1,4 +1,6 @@
 library(plotly)
+library(shiny)
+library(rsconnect)
 
 # Server code needed to draw histogram and change display based on radio selection
 server <- function(input, output) {
@@ -48,22 +50,22 @@ server <- function(input, output) {
     our_data <- smalldata
     if(input$select=='a'){
       temp <- smalldata$NO2
-      label <- "NO2 Concentration in United States"
+      label <- "NO2 Concentration (ppb) in United States"
     }
     
     if(input$select=='b'){
       temp <- smalldata$O3
-      label <- "O3 Concentration in United States"
+      label <- "O3 Concentration (ppm) in United States"
     }
     
     if(input$select=='c'){
       temp <- smalldata$SO2
-      label <- "SO2 Concentration in United States"
+      label <- "SO2 Concentration (ppb) in United States"
     }
     
     if(input$select=='d'){
       temp <- smalldata$CO
-      label <- "CO Concentration in United States"
+      label <- "CO Concentration (ppm) in United States"
     }
 
     plot_ly(
@@ -77,5 +79,13 @@ server <- function(input, output) {
               yaxis = list(
               title = label))
   })
+  
+  output$futureData <- renderTable(
+    {
+      X <- smalldata
+      
+      return(X)
+    }
+  )
   
 }

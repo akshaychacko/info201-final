@@ -20,8 +20,9 @@ ui <- fluidPage(
       
       # Radio buttons that allow user to change column of interest
       radioButtons("select", "Select dataset column of interest:",
-                   list("NO2"='a', "O3"='b', "SO2"='c', "CO"='d'))
+                   list("NO2"='a', "O3"='b', "SO2"='c', "CO"='d')),
       
+      tableOutput("futureData")
       
     
     ),
