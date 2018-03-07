@@ -1,9 +1,12 @@
+library(plotly)
+
 # Server code needed to draw histogram and change display based on radio selection
 server <- function(input, output) {
   
 
   # Histogram generation is wrapped in a call to renderPlot, because it is reactive and should be executed each time the input changes.
- # data <- read.csv("data/pollution_us_2000_2016.csv", stringsAsFactors=FALSE)
+  bigdata <- read.csv("data/pollution.csv", stringsAsFactors=FALSE)
+  smalldata <- read.csv("data/plot_data.csv", stringsAsFactors=FALSE)
   
   output$histPlot <- renderPlot({
     
@@ -42,8 +45,6 @@ server <- function(input, output) {
   
   output$plot <- renderPlotly({
     
-    #color <- c("blue", "red")
-    
     our_data <- smalldata
     if(input$select=='a'){
       temp <- smalldata$NO2
@@ -64,13 +65,7 @@ server <- function(input, output) {
       temp <- smalldata$CO
       label <- "CO Concentration in United States"
     }
-    
-  #  barplot(colSums(our_data[,c("NO2","O3", "SO2", "CO")]),
-   #         ylab="Total",
-    #        xlab="Census Year",
-     #       names.arg = c("NO2","O3","SO2", "CO"),
-      #      col = color)
-  
+
     plot_ly(
       x = smalldata$Year,
       y = temp,
