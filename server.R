@@ -14,22 +14,22 @@ server <- function(input, output) {
     
     # Switches histogram label and column to display based on radio button selected 
     if(input$select=='a'){
-      i<-8
+      i<-6
       string <- "NO2"
     }
     
     if(input$select=='b'){
-      i<-10
+      i<-8
       string <- "O3"
     }
     
     if(input$select=='c'){
-      i<-12
+      i<-10
       string <- "SO2"
     }
     
     if(input$select=='d'){
-      i<-14
+      i<-12
       string <- "CO"
     }
     
