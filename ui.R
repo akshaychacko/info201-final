@@ -1,3 +1,7 @@
+library(plotly)
+library(shiny)
+library(rsconnect)
+
 # Defines UI for shinyapp that renders a histogram
 ui <- fluidPage(
   
@@ -22,20 +26,16 @@ ui <- fluidPage(
       radioButtons("select", "Select dataset column of interest:",
                    list("NO2"='a', "O3"='b', "SO2"='c', "CO"='d')),
       
-      tableOutput("futureData")
-      
-    
+      # Displays dataframe under radio button
+      tableOutput("dataTable")
     ),
     
-    
-    
+  
     # Main panel for displaying output
     mainPanel(
       tabsetPanel(
         tabPanel("Plot",
-                 # fluidRow(...)
                  plotOutput(outputId = "histPlot"),
-               #  plotOutput("bar",height = 500),
                  plotlyOutput("plot")
         )
       )

@@ -14,22 +14,22 @@ server <- function(input, output) {
     
     # Switches histogram label and column to display based on radio button selected 
     if(input$select=='a'){
-      i<-6
+      i<-5
       string <- "NO2"
     }
     
     if(input$select=='b'){
-      i<-8
+      i<-6
       string <- "O3"
     }
     
     if(input$select=='c'){
-      i<-10
+      i<-7
       string <- "SO2"
     }
     
     if(input$select=='d'){
-      i<-12
+      i<-8
       string <- "CO"
     }
     
@@ -45,9 +45,9 @@ server <- function(input, output) {
          main = paste0("Histogram of Pollutant Frequency ", string))
   })
   
+  # Bar graph is wrapped in reactive plotly function
   output$plot <- renderPlotly({
     
-    our_data <- smalldata
     if(input$select=='a'){
       temp <- smalldata$NO2
       label <- "NO2 Concentration (ppb) in United States"
@@ -68,6 +68,7 @@ server <- function(input, output) {
       label <- "CO Concentration (ppm) in United States"
     }
 
+    # Plots data from smalldata table
     plot_ly(
       x = smalldata$Year,
       y = temp,
@@ -80,11 +81,10 @@ server <- function(input, output) {
               title = label))
   })
   
-  output$futureData <- renderTable(
+  # Renders smalldata table
+  output$dataTable <- renderTable(
     {
-      X <- smalldata
-      
-      return(X)
+      return(smalldata)
     }
   )
   
