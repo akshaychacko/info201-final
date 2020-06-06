@@ -10,7 +10,7 @@ Akshay Chacko, Beck Millet, Derek Dawson
 
 ## Both the histogram and bar graph are controlled by radio buttons on the left side, which determine the specific pollutant to display the information for.
 
-## This app is beneficial to the overall cause of environmentalists because we can devise plans for improvement based off the pollutant's trends and causes. For example, O3 pollution generally occurs due to power plants, refineries, and chemical plants. This mean a right skewed frequency distribution could lead researchers to encourage the use of alternative energy, since the data illustrates a large frequency of high concentrations.
+## This app is beneficial for environmental analysis because we can devise plans for improvement based off the pollutant's trends and causes. For example, O3 pollution generally occurs due to power plants, refineries, and chemical plants. This mean a right skewed frequency distribution could lead researchers to encourage the use of alternative energy, since the data illustrates a large frequency of high concentrations.
 
 
-## Click to view project [repo](https://akshayc.shinyapps.io/info201-final/)
+## Click to view project [demo](https://akshayc.shinyapps.io/info201-final/)
